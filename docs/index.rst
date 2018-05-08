@@ -1,0 +1,3 @@
+======================collective.siteimprove
+======================
+User documentation
