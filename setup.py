@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='collective.siteimprove',
-    version='1.0a1',
+    version='0.1alpha',
     description="Siteimprove integration for Plone",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
