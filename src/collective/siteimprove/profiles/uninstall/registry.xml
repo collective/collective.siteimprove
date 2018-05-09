@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+    <records prefix="plone.resources/siteimprove" remove="true"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry' />
+    <records prefix="plone.bundles/siteimprove" remove="true"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry' />
+</registry>
