@@ -13,13 +13,10 @@
   -->
   <!--<includeDependencies package="." />-->
 
+  <include file="permissions.zcml" />
   <include package=".browser" />
 
-  <include file="permissions.zcml" />
-
-  <include file="upgrades.zcml" />
-
-  <genericsetup:registerProfile
+    <genericsetup:registerProfile
       name="default"
       title="collective.siteimprove"
       directory="profiles/default"

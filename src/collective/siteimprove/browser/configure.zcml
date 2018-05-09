@@ -4,18 +4,29 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.siteimprove">
 
-  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  <include package="z3c.jbot" file="meta.zcml" />
-  <browser:jbot
-      directory="overrides"
-      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
-      />
-
   <!-- Publish static files -->
   <plone:static
       name="collective.siteimprove"
       type="plone"
       directory="static"
       />
+
+  <!-- Siteimprove Control Panel -->
+  <browser:page
+      name="siteimprove-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.SiteimproveControlPanel"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:viewlet
+      name="siteimprove-head"
+      class=".viewlets.SiteimproveJavascriptViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      template="siteimprove-head.pt"
+      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
+      permission="collective.siteimprove.UseSiteimprove"
+      for="*"
+   />
 
 </configure>

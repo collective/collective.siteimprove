@@ -1,0 +1,10 @@
+<tal:token condition="view/token">
+    <script src="https://cdn.siteimprove.net/cms/overlay.js"></script>
+    <tal:tag replace="structure string:<script>"/>
+        var _siteimprove_token = '${view/token}';
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var url = $('body').data('portal-url');
+            _si.push(['domain', url, _siteimprove_token, function() { console.log('Inputted domain to Siteimprove'); }]);
+        });
+    <tal:tag replace="structure string:</script>"/>
+</tal:token>
