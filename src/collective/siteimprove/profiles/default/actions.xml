@@ -6,6 +6,7 @@
       <property name="description" i18n:translate=""></property>
       <property
           name="url_expr">string:#</property>
+      <property name="available_expr">object/@@si-anon-can-view</property>
       <property name="permissions">
         <element value="collective.siteimprove: Use Siteimprove"/>
       </property>
