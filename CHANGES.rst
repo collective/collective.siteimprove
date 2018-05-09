@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.0a1 (unreleased)
+0.1a1 (2018-05-09)
 ------------------
 
 - Initial release.
-  [jazkarta]
+  [witekdev]
