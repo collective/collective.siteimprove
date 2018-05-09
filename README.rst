@@ -12,7 +12,7 @@ Features
 --------
 
 - Control panel for requesting and saving siteimprove.com token
-- Register domain with siteimprove.com and show toolbar
+- Register domain with siteimprove.com and show siteimprove overlay button
 - Siteimprove recheck action in plone toolbar for authorized users
 
 This is a work in progress.
@@ -35,9 +35,10 @@ and then running ``bin/buildout``.
 
 Install the Add-on from the Plone Add-ons control panel under Site Setup.
 Then go to the Siteimprove control panel and request a new token
-(or paste in an existing one), and save. The toobar and action should be
-available to Site Administrators and Managers (the permission can be
-delegated to other roles), on any content that is publicly visible.
+(or paste in an existing one), and save. The overlay button and toolbar
+action will be available to Site Administrators and Managers
+(the permission can be delegated to other roles), on any content that is
+publicly visible.
 
 
 Contribute
