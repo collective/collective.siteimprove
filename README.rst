@@ -11,11 +11,12 @@ This product provides integration with siteimprove.com
 Features
 --------
 
-- Control panel for requesting and storing siteimprove.com token
-- Register domain with siteimprove.com
+- Control panel for requesting and saving siteimprove.com token
+- Register domain with siteimprove.com and show toolbar
+- Siteimprove recheck action in plone toolbar for authorized users
 
 We dont know yet. Watch this space.
-This is still work in progress.
+This is a work in progress.
 
 
 Installation
@@ -31,7 +32,13 @@ Install collective.siteimprove by adding it to your buildout::
         collective.siteimprove
 
 
-and then running ``bin/buildout``
+and then running ``bin/buildout``.
+
+Install the Add-on from the Plone Add-ons control panel under Site Setup.
+Then go to the Siteimprove control panel and request a new token
+(or paste in an existing one), and save. The toobar and action should be
+available to Site Administrators and Managers (the permission can be
+delegated to other roles), on any content that is publicly visible.
 
 
 Contribute

@@ -19,6 +19,13 @@
       permission="cmf.ManagePortal"
       />
 
+  <browser:page
+      name="si-anon-can-view"
+      for="*"
+      class=".utils.AnonCanView"
+      permission="collective.siteimprove.UseSiteimprove"
+      />
+
   <browser:viewlet
       name="siteimprove-head"
       for="*"
