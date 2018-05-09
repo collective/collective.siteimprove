@@ -15,7 +15,6 @@ Features
 - Register domain with siteimprove.com and show toolbar
 - Siteimprove recheck action in plone toolbar for authorized users
 
-We dont know yet. Watch this space.
 This is a work in progress.
 
 
