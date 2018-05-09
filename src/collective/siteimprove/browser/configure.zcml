@@ -21,12 +21,13 @@
 
   <browser:viewlet
       name="siteimprove-head"
-      class=".viewlets.SiteimproveJavascriptViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-      template="siteimprove-head.pt"
-      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
-      permission="collective.siteimprove.UseSiteimprove"
       for="*"
-   />
+      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class=".viewlets.SiteimproveJavascriptViewlet"
+      template="siteimprove-head.pt"
+      permission="collective.siteimprove.UseSiteimprove"
+      />
 
 </configure>

@@ -34,3 +34,9 @@ report.html
 !.gitkeep
 !.travis.yml
 !src/collective
+integration.md
+Gruntfile.js
+.Python
+node_modules/
+package*.json
+temp_resources/
