@@ -17,6 +17,7 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".controlpanel.SiteimproveControlPanel"
       permission="cmf.ManagePortal"
+      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
       />
 
   <browser:page
@@ -24,6 +25,7 @@
       for="*"
       class=".utils.AnonCanView"
       permission="collective.siteimprove.UseSiteimprove"
+      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
       />
 
   <browser:viewlet
