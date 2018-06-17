@@ -39,4 +39,10 @@
       permission="collective.siteimprove.UseSiteimprove"
       />
 
+  <subscriber
+      for="*
+           Products.CMFCore.interfaces.IActionSucceededEvent"
+      handler=".events.triggerSiteimproveRecheck"
+      />
+
 </configure>
