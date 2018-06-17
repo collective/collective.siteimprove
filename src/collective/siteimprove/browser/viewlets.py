@@ -20,6 +20,7 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
         if siteimprove_registry and siteimprove_registry.token:
             self.token = siteimprove_registry.token
 
+        # check if a publish event proceeded this, if yes, inject site improve recheck js code
         session_manager = self.context.session_data_manager
         session = session_manager.getSessionData()
         if session.has_key('SI-Published'):
