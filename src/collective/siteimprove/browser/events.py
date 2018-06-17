@@ -3,7 +3,8 @@ from zope.globalrequest import getRequest
 from zope.component.hooks import getSite
 
 def triggerSiteimproveRecheck(obj, event):
-    """ Sets session 'flag' for viewlet to trigger siteimprove recheck
+    """ Sets session 'flag' to indicate that a publish workflow transition
+        took place
     """
     if ICollectiveSiteimproveLayer.providedBy(getRequest()):
         session_manager = getSite().session_data_manager
