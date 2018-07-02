@@ -22,9 +22,12 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
             self.token = siteimprove_registry.token
 
         # check if a publish event proceeded this, if yes, inject site improve recheck js code
-        session_manager = self.context.session_data_manager
-        session = session_manager.getSessionData()
-        if session.has_key('SI-Published'):
+        cookie = self.request.cookies.get("SI-Published", None)
+        if cookie:
             self.recheck = True
-            # clear flag in the session
-            del session['SI-Published']
+            # clear the cookie
+            # trying all sorts of way to cleart the cookie. Not working!
+            # once set, the cooke does not go away! :(
+            del self.request.cookies['SI-Published']
+            self.request.response.expireCookie("SI-Published")
+            self.request.cookies["SI-Published"] = False
