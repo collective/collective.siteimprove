@@ -26,8 +26,4 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
         if cookie:
             self.recheck = True
             # clear the cookie
-            # trying all sorts of way to cleart the cookie. Not working!
-            # once set, the cooke does not go away! :(
-            del self.request.cookies['SI-Published']
-            self.request.response.expireCookie("SI-Published")
-            self.request.cookies["SI-Published"] = False
+            self.request.response.expireCookie("SI-Published", path='/')
