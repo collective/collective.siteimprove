@@ -13,9 +13,17 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
         super(SiteimproveJavascriptViewlet, self).update()
 
         self.token = None
+        self.recheck = False
 
         # lookup token
         registry = getUtility(IRegistry)
         siteimprove_registry = registry.forInterface(ISiteimproveSchema, False)
         if siteimprove_registry and siteimprove_registry.token:
             self.token = siteimprove_registry.token
+
+        # check if a publish event proceeded this, if yes, inject site improve recheck js code
+        cookie = self.request.cookies.get("SI-Published", None)
+        if cookie:
+            self.recheck = True
+            # clear the cookie
+            self.request.response.expireCookie("SI-Published", path='/')
