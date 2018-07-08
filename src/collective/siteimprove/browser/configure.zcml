@@ -28,6 +28,14 @@
       layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
       />
 
+  <browser:page
+      name="si-use-domain"
+      for="*"
+      class=".utils.UseDomainView"
+      permission="collective.siteimprove.UseSiteimprove"
+      layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
+      />
+
   <browser:viewlet
       name="siteimprove-head"
       for="*"
