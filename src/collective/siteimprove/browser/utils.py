@@ -4,7 +4,6 @@ from AccessControl.SecurityInfo import ClassSecurityInfo
 from AccessControl.SecurityInfo import ModuleSecurityInfo
 from AccessControl.SecurityManagement import getSecurityManager
 from zope.component import getMultiAdapter
-from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five.browser import BrowserView
 
@@ -23,15 +22,8 @@ class UseDomainView(BrowserView):
         use_domain = False # use input function by default
 
         # figure out if domain function should be used instead
-        portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
-        site = portal_state.portal() #site root
-        site_path = site.getPhysicalPath();
-        context_path = self.context.getPhysicalPath()
-
-        # XXX This is not correct -- fix method to calculate when we are at root of site
-        if context_path == site_path:
-            use_domain == True
-        if IPloneSiteRoot.providedBy(self.context):
+        context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
+        if context_state.is_portal_root():
             use_domain == True
 
         return use_domain
