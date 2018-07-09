@@ -1,4 +1,4 @@
-<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain">
+<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain|nothing">
     <script src="https://cdn.siteimprove.net/cms/overlay.js" async></script>
     <tal:tag replace="structure string:<script>"/>
         var _siteimprove_token = '${view/token}';
