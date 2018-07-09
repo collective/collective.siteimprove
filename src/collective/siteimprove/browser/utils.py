@@ -19,12 +19,8 @@ class UseDomainView(BrowserView):
        false implies that input function will be used instead"""
 
     def __call__(self):
-        use_domain = False # use input function by default
-
         # figure out if domain function should be used instead
         context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
         if context_state is not None:
-            if context_state.is_portal_root():
-                use_domain = True
-
-        return use_domain
+            return context_state.is_portal_root() # use domain function if true
+        return False # use input function
