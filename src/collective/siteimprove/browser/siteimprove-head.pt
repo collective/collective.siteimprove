@@ -1,11 +1,11 @@
-<tal:token condition="view/token" tal:define="visible context/@@si-anon-can-view">
+<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain">
     <script src="https://cdn.siteimprove.net/cms/overlay.js" async></script>
     <tal:tag replace="structure string:<script>"/>
         var _siteimprove_token = '${view/token}';
         document.addEventListener("DOMContentLoaded", function(event) {
             require(['jquery', 'siteimprove'], function ($, siteimprove) {
-                <tal:domain condition="not:visible">siteimprove.domain();</tal:domain>
-                <tal:domain condition="visible">siteimprove.input();</tal:domain>
+                <tal:not_domain condition="not:use_domain">siteimprove.input();</tal:not_domain>
+                <tal:domain condition="use_domain">siteimprove.domain();</tal:domain>
                 <tal:recheck condition="view/recheck|nothing">siteimprove.recheck();</tal:recheck>
                 $('#plone-contentmenu-actions-siteimprove').on('click', function () {
                     siteimprove.recheck();
