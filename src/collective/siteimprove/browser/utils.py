@@ -23,7 +23,8 @@ class UseDomainView(BrowserView):
 
         # figure out if domain function should be used instead
         context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
-        if context_state.is_portal_root():
-            use_domain == True
+        if context_state is not None:
+            if context_state.is_portal_root():
+                use_domain = True
 
         return use_domain
