@@ -3,7 +3,7 @@ from AccessControl.Role import gather_permissions
 from AccessControl.SecurityInfo import ClassSecurityInfo
 from AccessControl.SecurityInfo import ModuleSecurityInfo
 from AccessControl.SecurityManagement import getSecurityManager
-from zope.component import getMultiAdapter
+from zope.component import queryMultiAdapter
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five.browser import BrowserView
 
@@ -20,7 +20,7 @@ class UseDomainView(BrowserView):
 
     def __call__(self):
         # figure out if domain or input function should be used
-        context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
+        context_state = queryMultiAdapter((self.context, self.request), name=u'plone_context_state')
         if context_state is not None:
             return context_state.is_portal_root() # use domain function if true
         return False # use input function
