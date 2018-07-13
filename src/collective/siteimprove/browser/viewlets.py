@@ -21,7 +21,8 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
         if siteimprove_registry and siteimprove_registry.token:
             self.token = siteimprove_registry.token
 
-        # check if a publish event proceeded this, if yes, inject site improve recheck js code
+        # check if a publish event proceeded this, if yes, inject site improve
+        # recheck js code
         cookie = self.request.cookies.get("SI-Published", None)
         if cookie:
             self.recheck = True

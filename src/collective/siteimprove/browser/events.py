@@ -14,7 +14,8 @@ def triggerSiteimproveRecheck(obj, event):
     if ICollectiveSiteimproveLayer.providedBy(getRequest()):
         recheck = False
 
-        if IObjectModifiedEvent.providedBy(event) and 'Anonymous' in rolesForPermissionOn('View', event.object):
+        if IObjectModifiedEvent.providedBy(event) and \
+                'Anonymous' in rolesForPermissionOn('View', event.object):
             # object saved and publically visible
             recheck = True
         elif IActionSucceededEvent.providedBy(event):
@@ -23,6 +24,7 @@ def triggerSiteimproveRecheck(obj, event):
 
         if recheck:
             request = getRequest()
-            expiration_seconds = time.time() + (1*60*60) # 1 hour from now
+            expiration_seconds = time.time() + (1*60*60)  # 1 hour from now
             expires = formatdate(expiration_seconds, usegmt=True)
-            request.response.setCookie("SI-Published", True, path='/', expires=expires)
+            request.response.setCookie("SI-Published", True, path='/',
+                                       expires=expires)
