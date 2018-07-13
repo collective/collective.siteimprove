@@ -1,10 +1,5 @@
 from AccessControl.PermissionRole import rolesForPermissionOn
-from AccessControl.Role import gather_permissions
-from AccessControl.SecurityInfo import ClassSecurityInfo
-from AccessControl.SecurityInfo import ModuleSecurityInfo
-from AccessControl.SecurityManagement import getSecurityManager
 from zope.component import queryMultiAdapter
-from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five.browser import BrowserView
 
 
