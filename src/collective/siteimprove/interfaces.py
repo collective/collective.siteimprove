@@ -3,5 +3,6 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 
+
 class ICollectiveSiteimproveLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""

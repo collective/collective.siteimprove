@@ -38,12 +38,14 @@ class SiteimproveControlPanelForm(controlpanel.RegistryEditForm):
         data = {}
 
         # get plone version
-        core_versions = getToolByName(aq_inner(self.context), 'portal_migration').coreVersions()
+        core_versions = getToolByName(aq_inner(self.context),
+                                      'portal_migration').coreVersions()
         version_string = 'Plone %s' % core_versions['Plone']
 
         # request new token
         try:
-            response = requests.get("https://my2.siteimprove.com/auth/token", data={'cms': version_string })
+            response = requests.get("https://my2.siteimprove.com/auth/token",
+                                    data={'cms': version_string})
             data = response.json()
         except (requests.exceptions.RequestException, ValueError):
             log.exception("Error fetching token from siteimprove.")
