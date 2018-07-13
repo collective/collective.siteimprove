@@ -14,6 +14,7 @@ class AnonCanView(BrowserView):
     def __call__(self):
         """Can we see this"""
         return 'Anonymous' in rolesForPermissionOn('View', self.context)
+
 class UseDomainView(BrowserView):
     """Returns true if the domain function is to be used in the siteimprove js header
        false implies that input function will be used instead"""

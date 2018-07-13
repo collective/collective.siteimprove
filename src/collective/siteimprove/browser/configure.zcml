@@ -53,4 +53,10 @@
       handler=".events.triggerSiteimproveRecheck"
       />
 
+  <subscriber
+      for="*
+           zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".events.triggerSiteimproveRecheck"
+      />
+
 </configure>
