@@ -40,7 +40,6 @@
       name="siteimprove-head"
       for="*"
       layer="collective.siteimprove.interfaces.ICollectiveSiteimproveLayer"
-      view="plone.app.layout.globals.interfaces.IViewView"
       manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
       class=".viewlets.SiteimproveJavascriptViewlet"
       template="siteimprove-head.pt"
