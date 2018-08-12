@@ -3,15 +3,9 @@ from plone.app.layout.viewlets import common as base
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
+class SIViewletCommon:
 
-class SiteimproveJavascriptViewlet(base.ViewletBase):
-    """ This will render Siteimprove JavaScript load in <head>.
-        <head> section is retrofitted only if the viewlet is enabled.
-    """
-
-    def update(self):
-        super(SiteimproveJavascriptViewlet, self).update()
-
+    def update_common(self):
         self.token = None
         self.recheck = False
 
@@ -28,3 +22,23 @@ class SiteimproveJavascriptViewlet(base.ViewletBase):
             self.recheck = True
             # clear the cookie
             self.request.response.expireCookie("SI-Published", path='/')
+
+
+class SiteimproveJavascriptViewOnlyViewlet(base.ViewletBase, SIViewletCommon):
+    """ This will render Siteimprove JavaScript load in <head>.
+        <head> section is retrofitted only if the viewlet is enabled.
+    """
+
+    def update(self):
+        super(SiteimproveJavascriptViewOnlyViewlet, self).update()
+        self.update_common()
+
+
+class SiteimproveJavascriptViewlet(base.ViewletBase, SIViewletCommon):
+    """ This will render Siteimprove JavaScript load in <head>.
+        <head> section is retrofitted only if the viewlet is enabled.
+    """
+
+    def update(self):
+        super(SiteimproveJavascriptViewlet, self).update()
+        self.update_common()

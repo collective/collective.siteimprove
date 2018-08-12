@@ -1,4 +1,4 @@
-<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain|nothing">
+<tal:token condition="view/token">
     <script src="https://cdn.siteimprove.net/cms/overlay.js" async></script>
     <tal:tag replace="structure string:<script>"/>
         if (typeof _siteimprove_token === 'undefined' ) {
@@ -7,8 +7,7 @@
             var _siteimprove_token = '${view/token}';
             document.addEventListener("DOMContentLoaded", function(event) {
                 require(['jquery', 'siteimprove'], function ($, siteimprove) {
-                    <tal:not_domain condition="not:use_domain">siteimprove.input();</tal:not_domain>
-                    <tal:domain condition="use_domain">siteimprove.domain();</tal:domain>
+                    siteimprove.input();
                     <tal:recheck condition="view/recheck|nothing">siteimprove.recheck();</tal:recheck>
                     $('#plone-contentmenu-actions-siteimprove').on('click', function () {
                         siteimprove.recheck();

@@ -19,8 +19,16 @@ class UseDomainView(BrowserView):
 
     def __call__(self):
         # figure out if domain or input function should be used
-        context_state = queryMultiAdapter((self.context, self.request),
-                                          name=u'plone_context_state')
-        if context_state is not None:
-            return context_state.is_portal_root()  # True = domain function
-        return False  # False = input function
+
+        # if the view is an add or edit form use input
+        # 'edit' covers: 'edit', 'base_edit','atct_edit','@@edit',
+        #                adding archetype objects
+        #                editing archetype and dexterity objects
+        # 'add' covers:  adding dexterity objects
+        filter_strings = ['edit','add']
+        for x in filter_strings:
+            if x in self.request.URL:
+                return False # use input
+
+        # otherwise use domain
+        return True
