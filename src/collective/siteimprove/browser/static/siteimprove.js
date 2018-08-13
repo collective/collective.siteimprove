@@ -7,17 +7,17 @@ define([
     'use strict';
     var Siteimprove = {
       input: function () {
-        this.url = canonical-url;
+        this.url = canonical_url;
         this.method = 'input';
         this.call();
       },
       domain: function () {
-        this.url = canonical-url;
+        this.url = canonical_url;
         this.method = 'domain';
         this.call();
       },
       recheck: function () {
-        this.url = canonical-url;
+        this.url = canonical_url;
         this.method = 'recheck';
         this.call();
       },
