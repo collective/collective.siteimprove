@@ -1,5 +1,4 @@
 from AccessControl.PermissionRole import rolesForPermissionOn
-from zope.component import queryMultiAdapter
 from Products.Five.browser import BrowserView
 
 
