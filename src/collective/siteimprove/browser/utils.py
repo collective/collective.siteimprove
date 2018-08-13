@@ -24,10 +24,10 @@ class UseDomainView(BrowserView):
         #                adding archetype objects
         #                editing archetype and dexterity objects
         # 'add' covers:  adding dexterity objects
-        filter_strings = ['edit','add']
+        filter_strings = ['edit', 'add']
         for x in filter_strings:
             if x in self.request.URL:
-                return False # use input
+                return False  # use input
 
         # otherwise use domain
         return True

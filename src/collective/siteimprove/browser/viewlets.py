@@ -3,6 +3,7 @@ from plone.app.layout.viewlets import common as base
 from plone.registry.interfaces import IRegistry
 from zope.component import queryMultiAdapter, getUtility
 
+
 class SIViewletCommon:
 
     def update_common(self):
