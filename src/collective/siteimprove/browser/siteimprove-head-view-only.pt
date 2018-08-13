@@ -5,6 +5,7 @@
             <!-- Only execute this code if other site improve head viewlet has not yet executed -->
             <!-- on 'view views' both viewlets will execute, in which case only allow one viewlet's payload -->
             var _siteimprove_token = '${view/token}';
+            var canonical-url = '${view/canonical_url}';
             document.addEventListener("DOMContentLoaded", function(event) {
                 require(['jquery', 'siteimprove'], function ($, siteimprove) {
                     siteimprove.input();

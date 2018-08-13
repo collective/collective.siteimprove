@@ -1,13 +1,17 @@
 from collective.siteimprove.browser.controlpanel import ISiteimproveSchema
 from plone.app.layout.viewlets import common as base
 from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
+from zope.component import queryMultiAdapter, getUtility
 
 class SIViewletCommon:
 
     def update_common(self):
         self.token = None
         self.recheck = False
+
+        context_state = queryMultiAdapter((self.context, self.request),
+                                          name=u'plone_context_state')
+        self.canonical_url = context_state.canonical_object_url()
 
         # lookup token
         registry = getUtility(IRegistry)
