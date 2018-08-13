@@ -36,6 +36,7 @@ class SiteimproveJavascriptViewOnlyViewlet(base.ViewletBase, SIViewletCommon):
 
     def update(self):
         super(SiteimproveJavascriptViewOnlyViewlet, self).update()
+        self.view_only = True
         self.update_common()
 
 
@@ -46,4 +47,5 @@ class SiteimproveJavascriptViewlet(base.ViewletBase, SIViewletCommon):
 
     def update(self):
         super(SiteimproveJavascriptViewlet, self).update()
+        self.view_only = False
         self.update_common()

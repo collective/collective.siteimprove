@@ -42,7 +42,7 @@
       view="plone.app.layout.globals.interfaces.IViewView"
       manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
       class=".viewlets.SiteimproveJavascriptViewOnlyViewlet"
-      template="siteimprove-head-view-only.pt"
+      template="siteimprove-head.pt"
       permission="collective.siteimprove.UseSiteimprove"
       />
 

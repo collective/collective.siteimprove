@@ -1,26 +1,28 @@
-<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain|nothing">
+<tal:token condition="view/token" tal:define="use_domain context/@@si-use-domain|nothing;
+                                              viewview_only view/view_only|nothing">
     <script src="https://cdn.siteimprove.net/cms/overlay.js" async></script>
     <tal:tag replace="structure string:<script>"/>
-        if (typeof _siteimprove_token === 'undefined' ) {
-            // Only execute this code if other site improve head viewlet has not yet executed
-            // on 'view views' both viewlets will execute, in which case only allow one viewlet's payload
-            var _siteimprove_token = "${view/token}";
-            var canonical_url = "${view/canonical_url}";
-            document.addEventListener("DOMContentLoaded", function(event) {
-                require(['jquery', 'siteimprove'], function ($, siteimprove) {
+        var _siteimprove_token = "${view/token}";
+        var canonical_url = "${view/canonical_url}";
+        document.addEventListener("DOMContentLoaded", function(event) {
+            require(['jquery', 'siteimprove'], function ($, siteimprove) {
+                <tal:viewview_only condition="viewview_only">
+                    siteimprove.input();
+                </tal:viewview_only>
+                <tal:all_views condition="not:viewview_only">
                     <tal:not_domain condition="not:use_domain">siteimprove.input();</tal:not_domain>
                     <tal:domain condition="use_domain">siteimprove.domain();</tal:domain>
-                    <tal:recheck condition="view/recheck|nothing">siteimprove.recheck();</tal:recheck>
-                    $('#plone-contentmenu-actions-siteimprove').on('click', function () {
-                        siteimprove.recheck();
-                        $(this).parents('li').removeClass('active');
-                        $('#global_statusmessage > div').append(
-                            '<div class="portalMessage info"> <strong>Info</strong>Siteimprove recheck requested</div>'
-                        );
-                        return false;
-                    });
+                </tal:all_views>
+                <tal:recheck condition="view/recheck|nothing">siteimprove.recheck();</tal:recheck>
+                $('#plone-contentmenu-actions-siteimprove').on('click', function () {
+                    siteimprove.recheck();
+                    $(this).parents('li').removeClass('active');
+                    $('#global_statusmessage > div').append(
+                        '<div class="portalMessage info"> <strong>Info</strong>Siteimprove recheck requested</div>'
+                    );
+                    return false;
                 });
             });
-        }
+        });
     <tal:tag replace="structure string:</script>"/>
 </tal:token>
