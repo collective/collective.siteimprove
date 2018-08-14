@@ -17,9 +17,6 @@ Features
 - Siteimprove recheck action in plone toolbar for authorized users
   on publicly visible content.
 
-This is a work in progress.
-
-
 Installation
 ------------
 
