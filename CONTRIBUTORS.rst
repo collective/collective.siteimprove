@@ -1,6 +1,6 @@
 Contributors
 ============
 
-- jazkarta, info@jazkarta.com
-- Witek, witekdev@gmail.com
-- Alec Mitchell, alecpm@gmail.com
+- jazkarta, info <at> jazkarta.com
+- Witek, witekdev <at> gmail.com
+- Alec Mitchell, alecpm <at> gmail.com
