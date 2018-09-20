@@ -23,6 +23,9 @@ API that is required to provide these features. The only thing Plone
 admins need to do is install the add-on and configure a Siteimprove
 token.
 
+For more information on using Siteimprove within Plone, 
+see `How to navigate the Siteimprove CMS Plugin
+<https://support.siteimprove.com/hc/en-gb/articles/115000075451-How-to-navigate-the-Siteimprove-CMS-Plugin>`_.
 
 Features
 --------
