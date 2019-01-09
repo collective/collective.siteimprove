@@ -5,12 +5,15 @@ from Products.CMFPlone import PloneMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
 from logging import getLogger
 from plone.app.registry.browser import controlpanel
+from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
 from zope import schema
 from z3c.form import button
 import requests
 
 log = getLogger(__name__)
+
+plone_mf = MessageFactory("plone")
 
 
 class ISiteimproveSchema(Interface):
@@ -29,7 +32,13 @@ class SiteimproveControlPanelForm(controlpanel.RegistryEditForm):
     schema = ISiteimproveSchema
     formErrorsMessage = _('Error fetching token from siteimprove.')
 
-    buttons = controlpanel.RegistryEditForm.buttons.copy()
+    @button.buttonAndHandler(plone_mf(u"Save"), name="save")
+    def handleSave(self, action):
+        super(SiteimproveControlPanelForm, self).handleSave(self, action)
+
+    @button.buttonAndHandler(plone_mf(u"Cancel"), name="cancel")
+    def handleCancel(self, action):
+        super(SiteimproveControlPanelForm, self).handleCancel(self, action)
 
     @button.buttonAndHandler(_('Request new token'), name=None)
     def handleRequestNewToken(self, action):
