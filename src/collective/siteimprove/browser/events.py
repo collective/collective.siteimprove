@@ -1,5 +1,8 @@
 import time
-from email.Utils import formatdate
+try:
+    from email.Utils import formatdate
+except ImportError:
+    from email.utils import formatdate
 from AccessControl.PermissionRole import rolesForPermissionOn
 from zope.lifecycleevent import IObjectModifiedEvent
 from Products.CMFCore.interfaces import IActionSucceededEvent
