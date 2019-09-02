@@ -28,5 +28,5 @@ def triggerSiteimproveRecheck(obj, event):
             request = getRequest()
             expiration_seconds = time.time() + (1 * 60 * 60)  # 1 hour from now
             expires = formatdate(expiration_seconds, usegmt=True)
-            request.response.setCookie("SI-Published", True, path='/',
+            request.response.setCookie("SI-Published",  'True', path='/',
                                        expires=expires)
