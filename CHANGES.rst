@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0.4 (unreleased)
+------------------
+
+- Fix the save and cancel buttons [batlock666]
+
+
 1.0.3 (2018-11-08)
 ------------------
 
