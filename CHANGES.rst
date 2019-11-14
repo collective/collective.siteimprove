@@ -1,10 +1,12 @@
 Changelog
 =========
 
-1.0.4 (unreleased)
+1.0.4 (2019-11-14)
 ------------------
 
-- Fix the save and cancel buttons [batlock666]
+ - Fix the save and cancel buttons in siteimprove controlpanel [batlock666]
+ - Update rolemap to grant Editor and Reviewer role to siteimprove functionality by default [witekdev]
+ - Update PYPI classifier. Tested with Plone 5.2
 
 
 1.0.3 (2018-11-08)

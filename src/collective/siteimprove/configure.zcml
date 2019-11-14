@@ -14,6 +14,7 @@
   <!--<includeDependencies package="." />-->
 
   <include file="permissions.zcml" />
+  <include file="profile.zcml" />
   <include package=".browser" />
 
     <genericsetup:registerProfile

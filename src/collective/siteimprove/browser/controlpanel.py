@@ -13,8 +13,6 @@ import requests
 
 log = getLogger(__name__)
 
-plone_mf = MessageFactory("plone")
-
 
 class ISiteimproveSchema(Interface):
 
@@ -32,11 +30,11 @@ class SiteimproveControlPanelForm(controlpanel.RegistryEditForm):
     schema = ISiteimproveSchema
     formErrorsMessage = _('Error fetching token from siteimprove.')
 
-    @button.buttonAndHandler(plone_mf(u"Save"), name="save")
+    @button.buttonAndHandler(_(u"Save"), name="save")
     def handleSave(self, action):
         super(SiteimproveControlPanelForm, self).handleSave(self, action)
 
-    @button.buttonAndHandler(plone_mf(u"Cancel"), name="cancel")
+    @button.buttonAndHandler(_(u"Cancel"), name="cancel")
     def handleCancel(self, action):
         super(SiteimproveControlPanelForm, self).handleCancel(self, action)
 

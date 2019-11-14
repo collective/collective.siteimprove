@@ -5,6 +5,8 @@
                     acquire="True">
             <role name="Site Administrator"/>
             <role name="Manager"/>
+            <role name="Editor"/>
+            <role name="Reviewer" />
         </permission>
   </permissions>
 </rolemap>
