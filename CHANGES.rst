@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.4 (2019-11-14)
+1.0.4 (2019-11-15)
 ------------------
 
  - Fix the save and cancel buttons in siteimprove controlpanel [batlock666]
