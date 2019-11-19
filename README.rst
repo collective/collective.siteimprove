@@ -39,6 +39,15 @@ Features
 - Overlay button provides link to re-crawl site 
 - Publishing or saving a published page triggers recheck action
 
+Customization
+-------------
+
+This add-on creates a new permission "collective.siteimprove: Use Siteimprove" 
+(zcml id "collective.siteimprove.UseSiteimprove") for viewing Siteimprove screens 
+and requesting content scans. This permission is assigned to the "Editor", "Reviewer", 
+"Site Administrator", and "Manager" roles by default. Those assignments can be
+changed via the ZMI or custom code.
+
 Installation
 ------------
 
