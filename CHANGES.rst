@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0.6 (2020-07-09)
+------------------
+
+ - Add option for public/canonical site url [alecpm]
+ - Python 3 compatibility [alecpm]
+
 1.0.5 (2019-11-19)
 ------------------
 
