@@ -11,4 +11,12 @@
     import_steps="rolemap"
     />
 
+  <upgradeDepends
+    profile="collective.siteimprove:default"
+    source="1004"
+    destination="1005"
+    title="Update controlpanel registry settings"
+    import_steps="plone.app.registry"
+    />
+
 </configure>

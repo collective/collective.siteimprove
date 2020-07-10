@@ -17,8 +17,17 @@ class SIViewletCommon:
         # lookup token
         registry = getUtility(IRegistry)
         siteimprove_registry = registry.forInterface(ISiteimproveSchema, False)
-        if siteimprove_registry and siteimprove_registry.token:
-            self.token = siteimprove_registry.token
+        if siteimprove_registry:
+            if getattr(siteimprove_registry, 'token', None):
+                self.token = siteimprove_registry.token
+
+            if getattr(siteimprove_registry, 'canonical_site_url', None):
+                portal_state = queryMultiAdapter((self.context, self.request),
+                                                 name=u'plone_portal_state')
+                self.canonical_url = self.canonical_url.replace(
+                    portal_state.portal_url().rstrip('/'),
+                    siteimprove_registry.canonical_site_url.rstrip('/')
+                )
 
         # check if a publish event proceeded this, if yes, inject site improve
         # recheck js code

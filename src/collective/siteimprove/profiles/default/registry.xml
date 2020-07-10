@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <registry>
-    <records interface="collective.siteimprove.browser.controlpanel.ISiteimproveSchema">
-        <value key="token"></value>
-    </records>
+    <records interface="collective.siteimprove.browser.controlpanel.ISiteimproveSchema" />
+
     <records prefix="plone.resources/siteimprove"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++collective.siteimprove/siteimprove.js</value>
