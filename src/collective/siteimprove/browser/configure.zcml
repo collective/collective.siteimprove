@@ -4,13 +4,6 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.siteimprove">
 
-  <!-- Publish static files -->
-  <plone:static
-      name="collective.siteimprove"
-      type="plone"
-      directory="static"
-      />
-
   <!-- Siteimprove Control Panel -->
   <browser:page
       name="siteimprove-settings"

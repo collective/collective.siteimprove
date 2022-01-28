@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='collective.siteimprove',
-    version='1.0.6',
+    version='1.0.7',
     description="Siteimprove integration for Plone",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -26,6 +26,7 @@ setup(
         "Framework :: Plone :: 5.2",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
