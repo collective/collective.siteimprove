@@ -5,23 +5,55 @@
         var _siteimprove_token = "${view/token}";
         var canonical_url = "${view/canonical_url}";
         document.addEventListener("DOMContentLoaded", function(event) {
-            require(['jquery', 'siteimprove'], function ($, siteimprove) {
-                <tal:viewview_only condition="viewview_only">
-                    siteimprove.input();
-                </tal:viewview_only>
-                <tal:all_views condition="not:viewview_only">
-                    <tal:not_domain condition="not:use_domain">siteimprove.input();</tal:not_domain>
-                    <tal:domain condition="use_domain">siteimprove.domain();</tal:domain>
-                </tal:all_views>
-                <tal:recheck condition="view/recheck|nothing">siteimprove.recheck();</tal:recheck>
-                $('#plone-contentmenu-actions-siteimprove').on('click', function () {
-                    siteimprove.recheck();
-                    $(this).parents('li').removeClass('active');
-                    $('#global_statusmessage > div').append(
-                        '<div class="portalMessage info"> <strong>Info</strong>Siteimprove recheck requested</div>'
-                    );
-                    return false;
-                });
+            var SiteImprove = {
+              input: function () {
+                this.url = window.canonical_url;
+                this.method = 'input';
+                this.call();
+              },
+              domain: function () {
+                this.url = window.canonical_url;
+                this.method = 'domain';
+                this.call();
+              },
+              recheck: function () {
+                this.url = window.canonical_url;
+                this.method = 'recheck';
+                this.call();
+              },
+              recrawl: function () {
+                var portalurl = $('body').data('portal-url'); // Plone5
+                if ( portalurl != null ) {
+                    this.url = $('body').data('portal-url'); // P5
+                }
+                else {
+                    this.url = portal_url; // assume Plone4
+                }
+                this.method = 'recrawl';
+                this.call();
+              },
+              call: function () {
+                if (window._siteimprove_token) {
+                    var _si = window._si || [];
+                    _si.push([this.method, this.url, window._siteimprove_token]);
+                }
+              },
+            };
+            <tal:viewview_only condition="viewview_only">
+                SiteImprove.input();
+            </tal:viewview_only>
+            <tal:all_views condition="not:viewview_only">
+                <tal:not_domain condition="not:use_domain">SiteImprove.input();</tal:not_domain>
+                <tal:domain condition="use_domain">SiteImprove.domain();</tal:domain>
+            </tal:all_views>
+            <tal:recheck condition="view/recheck|nothing">SiteImprove.recheck();</tal:recheck>
+            $('#plone-contentmenu-actions-siteimprove').on('click', function () {
+                SiteImprove.recheck();
+                $(this).parents('li').removeClass('active');
+                $('#global_statusmessage > div').append(
+                    '<div class="portalMessage info"> <strong>Info</strong>Siteimprove recheck requested</div>'
+                );
+                return false;
             });
         });
     <tal:tag replace="structure string:</script>"/>
