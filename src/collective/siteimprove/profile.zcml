@@ -19,4 +19,12 @@
     import_steps="plone.app.registry"
     />
 
+  <upgradeDepends
+    profile="collective.siteimprove:default"
+    source="1005"
+    destination="1007"
+    title="Remove siteimprove RR resource/bundle"
+    import_steps="plone.app.registry"
+    />
+
 </configure>

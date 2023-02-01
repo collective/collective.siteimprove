@@ -2,21 +2,7 @@
 <registry>
     <records interface="collective.siteimprove.browser.controlpanel.ISiteimproveSchema" />
 
-    <records prefix="plone.resources/siteimprove"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++collective.siteimprove/siteimprove.js</value>
-    </records>
+    <records prefix="plone.resources/siteimprove" interface="Products.CMFPlone.interfaces.IResourceRegistry" remove="True" />
+    <records prefix="plone.bundles/siteimprove" interface="Products.CMFPlone.interfaces.IBundleRegistry" remove="True" />
 
-    <records prefix="plone.bundles/siteimprove"
-            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources">
-            <element>siteimprove</element>
-        </value>
-        <value key="enabled">True</value>
-        <value key="jscompilation">++plone++collective.siteimprove/siteimprove-compiled.js</value>
-        <value key="last_compilation">2018-05-09 00:00:00</value>
-        <value key="depends">plone</value>
-        <value key="compile">true</value>
-        <value key="merge_with">default</value>
-    </records>
 </registry>

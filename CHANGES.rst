@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.7 (2022-01-28)
+------------------
+
+ - Fix occasional appearing: Uncaught TypeError: define is not a function [witekdev]
+ - Consolidate javascript code. Remove use of require.js [witekdev]
+ - Remove use of resource registry bundle/resource [witekdev]
+
+
 1.0.6 (2020-07-09)
 ------------------
 
